@@ -1,0 +1,3021 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,initial-scale=1.0">
+
+<meta name="theme-color"
+      content="#030503">
+
+<title>
+BISWA SENSI PRO ADMIN
+</title>
+
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+
+    font-family:
+        Inter,
+        Segoe UI,
+        Arial,
+        sans-serif;
+}
+
+
+:root{
+
+    --bg:#030503;
+
+    --panel:#090d09;
+
+    --panel2:#0d120d;
+
+    --border:#183018;
+
+    --green:#00ff66;
+
+    --green2:#00c853;
+
+    --blue:#00eaff;
+
+    --text:#f4fff7;
+
+    --muted:#7e8c82;
+
+    --red:#ff3d5a;
+
+    --yellow:#ffc107;
+}
+
+
+body{
+
+    min-height:100vh;
+
+    color:var(--text);
+
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(0,255,102,.12),
+            transparent 35%
+        ),
+        var(--bg);
+}
+
+
+button,
+input,
+select{
+    font:inherit;
+}
+
+
+button{
+    cursor:pointer;
+}
+
+
+.app{
+
+    width:100%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:18px;
+}
+
+
+/* HEADER */
+
+.header{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:27px 22px;
+
+    margin-bottom:18px;
+
+    border:1px solid var(--border);
+
+    border-radius:24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0b110b,
+            #050805
+        );
+}
+
+
+.logo{
+
+    width:60px;
+    height:60px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:18px;
+
+    border:1px solid var(--green);
+
+    color:var(--green);
+
+    font-size:17px;
+
+    font-weight:900;
+
+    margin-bottom:15px;
+}
+
+
+.header h1{
+
+    font-size:25px;
+
+    letter-spacing:2px;
+}
+
+
+.header p{
+
+    margin-top:7px;
+
+    color:var(--muted);
+
+    font-size:10px;
+
+    letter-spacing:3px;
+}
+
+
+.connection{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-top:17px;
+
+    padding:8px 12px;
+
+    border-radius:999px;
+
+    border:1px solid #153a1d;
+
+    background:#071008;
+
+    color:var(--green);
+
+    font-size:10px;
+}
+
+
+.dot{
+
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:var(--green);
+
+    box-shadow:
+        0 0 10px var(--green);
+}
+
+
+/* STATS */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:12px;
+
+    margin-bottom:18px;
+}
+
+
+.stat{
+
+    padding:18px;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0b100b,
+            #060906
+        );
+}
+
+
+.stat-label{
+
+    color:var(--muted);
+
+    font-size:10px;
+
+    letter-spacing:2px;
+}
+
+
+.stat-value{
+
+    margin-top:8px;
+
+    font-size:26px;
+
+    font-weight:900;
+
+    color:var(--green);
+}
+
+
+/* GRID */
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:18px;
+}
+
+
+.card{
+
+    padding:20px;
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0a0f0a,
+            #060806
+        );
+}
+
+
+.card.full{
+
+    grid-column:1/-1;
+}
+
+
+.card-title{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:17px;
+}
+
+
+.card-title h2{
+
+    font-size:14px;
+
+    letter-spacing:1.5px;
+}
+
+
+.card-title span{
+
+    color:var(--green);
+}
+
+
+/* FORMS */
+
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr;
+
+    gap:10px;
+}
+
+
+.field{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:7px;
+}
+
+
+.field label{
+
+    color:var(--muted);
+
+    font-size:10px;
+
+    letter-spacing:1.5px;
+}
+
+
+input,
+select{
+
+    width:100%;
+
+    height:45px;
+
+    padding:0 13px;
+
+    border-radius:12px;
+
+    border:1px solid #1c2a1d;
+
+    background:#050705;
+
+    color:#fff;
+
+    outline:none;
+}
+
+
+input:focus,
+select:focus{
+
+    border-color:var(--green);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(0,255,102,.07);
+}
+
+
+.button-row{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:9px;
+
+    margin-top:14px;
+}
+
+
+.btn{
+
+    min-height:42px;
+
+    padding:0 16px;
+
+    border:1px solid #1d3521;
+
+    border-radius:11px;
+
+    color:#fff;
+
+    background:#0b110b;
+}
+
+
+.btn-primary{
+
+    background:
+        linear-gradient(
+            135deg,
+            #00e85d,
+            #00a943
+        );
+
+    color:#001b08;
+
+    border:none;
+
+    font-weight:900;
+}
+
+
+.btn-danger{
+
+    color:#ff8092;
+
+    border-color:#51202a;
+}
+
+
+.btn-warning{
+
+    color:#ffd85c;
+
+    border-color:#504316;
+}
+
+
+.btn-small{
+
+    min-height:34px;
+
+    padding:0 10px;
+
+    font-size:11px;
+}
+
+
+/* GENERATED */
+
+.generated{
+
+    display:none;
+
+    margin-top:15px;
+
+    padding:14px;
+
+    border-radius:14px;
+
+    border:
+        1px solid
+        rgba(0,255,102,.3);
+
+    background:
+        rgba(0,255,102,.04);
+}
+
+
+.generated.show{
+
+    display:block;
+}
+
+
+.generated-title{
+
+    color:var(--muted);
+
+    font-size:10px;
+
+    letter-spacing:2px;
+}
+
+
+.generated-key{
+
+    margin-top:7px;
+
+    color:var(--green);
+
+    font-size:15px;
+
+    font-weight:900;
+
+    word-break:break-all;
+}
+
+
+/* SETTINGS */
+
+.settings-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:12px;
+}
+
+
+.switch-row{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:13px;
+
+    border-radius:13px;
+
+    border:1px solid #18251a;
+
+    background:#050705;
+
+    margin-top:12px;
+}
+
+
+.switch{
+
+    position:relative;
+
+    width:48px;
+
+    height:26px;
+}
+
+
+.switch input{
+
+    display:none;
+}
+
+
+.slider{
+
+    position:absolute;
+
+    inset:0;
+
+    background:#202520;
+
+    border:1px solid #384039;
+
+    border-radius:30px;
+}
+
+
+.slider:before{
+
+    content:"";
+
+    position:absolute;
+
+    width:18px;
+
+    height:18px;
+
+    left:3px;
+
+    top:3px;
+
+    background:#fff;
+
+    border-radius:50%;
+
+    transition:.2s;
+}
+
+
+.switch input:checked +
+.slider{
+
+    background:#00a943;
+
+    border-color:var(--green);
+}
+
+
+.switch input:checked +
+.slider:before{
+
+    transform:
+        translateX(22px);
+}
+
+
+/* TABLE */
+
+.toolbar{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:13px;
+}
+
+
+.toolbar input{
+
+    flex:1;
+
+    min-width:180px;
+}
+
+
+.table-wrap{
+
+    overflow:auto;
+
+    border-radius:14px;
+
+    border:1px solid #172217;
+}
+
+
+table{
+
+    width:100%;
+
+    min-width:850px;
+
+    border-collapse:collapse;
+}
+
+
+th{
+
+    padding:13px;
+
+    text-align:left;
+
+    font-size:10px;
+
+    letter-spacing:1.5px;
+
+    color:var(--green);
+
+    background:#050805;
+}
+
+
+td{
+
+    padding:13px;
+
+    border-top:
+        1px solid #111b12;
+
+    font-size:12px;
+
+    color:#dce8df;
+}
+
+
+.key-text{
+
+    color:#fff;
+
+    font-weight:800;
+}
+
+
+.badge{
+
+    display:inline-flex;
+
+    padding:5px 9px;
+
+    border-radius:999px;
+
+    font-size:9px;
+
+    font-weight:900;
+}
+
+
+.badge.active{
+
+    color:#00ff66;
+
+    background:
+        rgba(0,255,102,.08);
+}
+
+
+.badge.disabled{
+
+    color:#ff657c;
+
+    background:
+        rgba(255,61,90,.08);
+}
+
+
+.badge.expired{
+
+    color:#ffc107;
+
+    background:
+        rgba(255,193,7,.08);
+}
+
+
+.actions{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:6px;
+}
+
+
+/* DATABASE */
+
+.code-box{
+
+    max-height:400px;
+
+    overflow:auto;
+
+    padding:15px;
+
+    border-radius:13px;
+
+    border:1px solid #172217;
+
+    background:#020402;
+
+    color:#9dffa9;
+
+    font:
+        12px/1.6
+        Consolas,
+        monospace;
+
+    white-space:pre-wrap;
+
+    word-break:break-word;
+}
+
+
+/* TOAST */
+
+#toast{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:22px;
+
+    transform:
+        translate(-50%,20px);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:9999;
+
+    max-width:90%;
+
+    padding:12px 17px;
+
+    border-radius:12px;
+
+    background:#071008;
+
+    color:#fff;
+
+    transition:.25s;
+
+    font-size:12px;
+}
+
+
+#toast.show{
+
+    opacity:1;
+
+    transform:
+        translate(-50%,0);
+}
+
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .stats{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .grid{
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .card.full{
+
+        grid-column:auto;
+    }
+
+
+    .form-grid{
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .settings-grid{
+
+        grid-template-columns:
+            1fr;
+    }
+}
+
+
+@media(max-width:430px){
+
+    .app{
+        padding:11px;
+    }
+
+
+    .stat{
+        padding:14px;
+    }
+
+
+    .stat-value{
+        font-size:22px;
+    }
+
+
+    .card{
+        padding:15px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<div class="app">
+
+
+<header class="header">
+
+    <div class="logo">
+        BSP
+    </div>
+
+    <h1 id="headerTitle">
+        BISWA SENSI PRO
+    </h1>
+
+    <p>
+        PREMIUM ADMIN PANEL
+    </p>
+
+    <div class="connection">
+
+        <span class="dot"></span>
+
+        <span id="connectionText">
+            CONNECTING TO FIREBASE...
+        </span>
+
+    </div>
+
+</header>
+
+
+<!-- STATS -->
+
+<section class="stats">
+
+    <div class="stat">
+
+        <div class="stat-label">
+            Total Keys
+        </div>
+
+        <div
+            class="stat-value"
+            id="totalKeys">
+            0
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-label">
+            Active Keys
+        </div>
+
+        <div
+            class="stat-value"
+            id="activeKeys">
+            0
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-label">
+            Disabled
+        </div>
+
+        <div
+            class="stat-value"
+            id="disabledKeys">
+            0
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-label">
+            Expired
+        </div>
+
+        <div
+            class="stat-value"
+            id="expiredKeys">
+            0
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="grid">
+
+
+<!-- GENERATOR -->
+
+<section class="card">
+
+<div class="card-title">
+
+    <h2>
+        ACTIVATION KEY GENERATOR
+    </h2>
+
+    <span>
+        01
+    </span>
+
+</div>
+
+
+<div class="form-grid">
+
+    <div class="field">
+
+        <label>
+            CUSTOM KEY
+        </label>
+
+        <input
+            id="customKey"
+            placeholder="Leave empty for random">
+
+    </div>
+
+
+    <div class="field">
+
+        <label>
+            VALUE
+        </label>
+
+        <input
+            id="durationValue"
+            type="number"
+            min="1"
+            value="1">
+
+    </div>
+
+
+    <div class="field">
+
+        <label>
+            UNIT
+        </label>
+
+        <select id="durationUnit">
+
+            <option value="minute">
+                Minutes
+            </option>
+
+            <option value="hour">
+                Hours
+            </option>
+
+            <option
+                value="day"
+                selected>
+                Days
+            </option>
+
+            <option value="month">
+                Months
+            </option>
+
+            <option value="year">
+                Years
+            </option>
+
+            <option value="life">
+                Unlimited
+            </option>
+
+        </select>
+
+    </div>
+
+</div>
+
+
+<div class="button-row">
+
+    <button
+        class="btn btn-primary"
+        onclick="generateKey()">
+
+        GENERATE KEY
+
+    </button>
+
+
+    <button
+        class="btn"
+        onclick="generatePreview()">
+
+        RANDOM KEY
+
+    </button>
+
+</div>
+
+
+<div
+    id="generatedBox"
+    class="generated">
+
+    <div class="generated-title">
+        GENERATED KEY
+    </div>
+
+    <div
+        id="generatedKey"
+        class="generated-key">
+        -
+    </div>
+
+    <div class="button-row">
+
+        <button
+            class="btn btn-primary btn-small"
+            onclick="copyGeneratedKey()">
+
+            COPY KEY
+
+        </button>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- QUICK ACTION -->
+
+<section class="card">
+
+<div class="card-title">
+
+    <h2>
+        QUICK ACTIONS
+    </h2>
+
+    <span>
+        02
+    </span>
+
+</div>
+
+
+<div class="button-row">
+
+    <button
+        class="btn"
+        onclick="loadKeys()">
+
+        REFRESH KEYS
+
+    </button>
+
+
+    <button
+        class="btn"
+        onclick="refreshDatabase()">
+
+        REFRESH DATABASE
+
+    </button>
+
+
+    <button
+        class="btn"
+        onclick="exportKeys()">
+
+        EXPORT KEYS
+
+    </button>
+
+
+    <button
+        class="btn"
+        onclick="copyDatabase()">
+
+        COPY DATABASE
+
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- SETTINGS -->
+
+<section class="card">
+
+<div class="card-title">
+
+    <h2>
+        APP CONFIGURATION
+    </h2>
+
+    <span>
+        03
+    </span>
+
+</div>
+
+
+<div class="settings-grid">
+
+    <div class="field">
+
+        <label>
+            APP TITLE
+        </label>
+
+        <input
+            id="appTitle"
+            value="BISWA SENSI PRO">
+
+    </div>
+
+
+    <div class="field">
+
+        <label>
+            TELEGRAM URL
+        </label>
+
+        <input
+            id="telegramUrl"
+            value="https://t.me/biswa_mods">
+
+    </div>
+
+</div>
+
+
+<div class="switch-row">
+
+    <div>
+
+        <strong>
+            MAINTENANCE MODE
+        </strong>
+
+        <div
+            style="
+            color:#6f7b72;
+            font-size:10px;
+            margin-top:4px;">
+
+            Disable new activations.
+
+        </div>
+
+    </div>
+
+
+    <label class="switch">
+
+        <input
+            type="checkbox"
+            id="maintenance">
+
+        <span class="slider"></span>
+
+    </label>
+
+</div>
+
+
+<div class="button-row">
+
+    <button
+        class="btn btn-primary"
+        onclick="saveSettings()">
+
+        SAVE SETTINGS
+
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- FILTER -->
+
+<section class="card">
+
+<div class="card-title">
+
+    <h2>
+        KEY FILTER
+    </h2>
+
+    <span>
+        04
+    </span>
+
+</div>
+
+
+<div class="toolbar">
+
+    <input
+        id="searchKey"
+        placeholder="Search key..."
+        oninput="renderKeys()">
+
+
+    <select
+        id="statusFilter"
+        onchange="renderKeys()">
+
+        <option value="all">
+            All Status
+        </option>
+
+        <option value="active">
+            Active
+        </option>
+
+        <option value="disabled">
+            Disabled
+        </option>
+
+        <option value="expired">
+            Expired
+        </option>
+
+    </select>
+
+</div>
+
+</section>
+
+
+<!-- KEY TABLE -->
+
+<section class="card full">
+
+<div class="card-title">
+
+    <h2>
+        ACTIVATION KEY MANAGEMENT
+    </h2>
+
+    <span>
+        05
+    </span>
+
+</div>
+
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+
+    <th>
+        KEY
+    </th>
+
+    <th>
+        VALIDITY
+    </th>
+
+    <th>
+        CREATED
+    </th>
+
+    <th>
+        STATUS
+    </th>
+
+    <th>
+        ACTIONS
+    </th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="keysTableBody">
+
+<tr>
+
+<td
+    colspan="5"
+    style="text-align:center;">
+
+    Connecting...
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- DATABASE -->
+
+<section class="card full">
+
+<div class="card-title">
+
+    <h2>
+        DATABASE PREVIEW
+    </h2>
+
+    <span>
+        06
+    </span>
+
+</div>
+
+
+<div
+    class="button-row"
+    style="margin-top:0;">
+
+    <button
+        class="btn btn-primary btn-small"
+        onclick="refreshDatabase()">
+
+        REFRESH
+
+    </button>
+
+
+    <button
+        class="btn btn-small"
+        onclick="copyDatabase()">
+
+        COPY JSON
+
+    </button>
+
+</div>
+
+
+<pre
+    id="databasePreview"
+    class="code-box"
+    style="margin-top:12px;">
+
+Loading...
+
+</pre>
+
+</section>
+
+
+</div>
+
+</div>
+
+
+<div id="toast"></div>
+
+
+<script>
+
+/* =====================================================
+   FIREBASE CONFIGURATION
+===================================================== */
+
+const FIREBASE_BASE_URL =
+    "https://biswasensipro-62f4a-default-rtdb.firebaseio.com";
+
+const KEYS_PATH = "keys";
+
+const SETTINGS_PATH = "settings";
+
+
+let keysData = {};
+
+let settingsData = {};
+
+
+/* =====================================================
+   FIREBASE REQUEST
+===================================================== */
+
+async function firebaseRequest(
+    path = "",
+    options = {}
+){
+
+    const url =
+        FIREBASE_BASE_URL +
+        "/" +
+        path +
+        ".json";
+
+
+    console.log(
+        "Firebase:",
+        url
+    );
+
+
+    const response =
+        await fetch(
+            url,
+            {
+                ...options,
+
+                headers:{
+                    "Content-Type":
+                        "application/json",
+
+                    ...(options.headers || {})
+                }
+            }
+        );
+
+
+    const text =
+        await response.text();
+
+
+    let data;
+
+
+    try{
+
+        data =
+            text
+                ? JSON.parse(text)
+                : null;
+
+    }catch{
+
+        data = text;
+    }
+
+
+    if(!response.ok){
+
+        throw new Error(
+            "HTTP " +
+            response.status +
+            ": " +
+            JSON.stringify(data)
+        );
+    }
+
+
+    return data;
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+function showToast(
+    message,
+    error = false
+){
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+
+    toast.textContent =
+        message;
+
+
+    toast.style.borderColor =
+        error
+            ? "rgba(255,61,90,.5)"
+            : "rgba(0,255,102,.4)";
+
+
+    toast.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        window.toastTimer
+    );
+
+
+    window.toastTimer =
+        setTimeout(
+            () =>
+                toast.classList.remove(
+                    "show"
+                ),
+            2600
+        );
+}
+
+
+/* =====================================================
+   ESCAPE
+===================================================== */
+
+function escapeHTML(value){
+
+    return String(
+        value ?? ""
+    )
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+}
+
+
+/* =====================================================
+   RANDOM KEY
+===================================================== */
+
+function makeRandomKey(){
+
+    const chars =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+    const parts = [];
+
+
+    for(
+        let p=0;
+        p<5;
+        p++
+    ){
+
+        let part = "";
+
+
+        for(
+            let i=0;
+            i<5;
+            i++
+        ){
+
+            part +=
+                chars[
+                    Math.floor(
+                        Math.random() *
+                        chars.length
+                    )
+                ];
+        }
+
+
+        parts.push(part);
+    }
+
+
+    return parts.join("-");
+}
+
+
+/* =====================================================
+   NORMALIZE
+===================================================== */
+
+function normalizeKey(key){
+
+    return key
+        .trim()
+        .toUpperCase()
+        .replace(
+            /[^A-Z0-9_-]/g,
+            "-"
+        )
+        .replace(
+            /-+/g,
+            "-"
+        );
+}
+
+
+/* =====================================================
+   DURATION
+===================================================== */
+
+function durationMs(
+    value,
+    unit
+){
+
+    if(unit === "minute")
+        return value *
+            60 *
+            1000;
+
+
+    if(unit === "hour")
+        return value *
+            60 *
+            60 *
+            1000;
+
+
+    if(unit === "day")
+        return value *
+            24 *
+            60 *
+            60 *
+            1000;
+
+
+    if(unit === "month")
+        return value *
+            30 *
+            24 *
+            60 *
+            60 *
+            1000;
+
+
+    if(unit === "year")
+        return value *
+            365 *
+            24 *
+            60 *
+            60 *
+            1000;
+
+
+    if(unit === "life")
+        return 9999999999999;
+
+
+    return 0;
+}
+
+
+function durationText(
+    value,
+    unit
+){
+
+    if(unit === "minute")
+        return value +
+            " Minute(s)";
+
+
+    if(unit === "hour")
+        return value +
+            " Hour(s)";
+
+
+    if(unit === "day")
+        return value +
+            " Day(s)";
+
+
+    if(unit === "month")
+        return value +
+            " Month(s)";
+
+
+    if(unit === "year")
+        return value +
+            " Year(s)";
+
+
+    if(unit === "life")
+        return "Lifetime (Unlimited)";
+
+
+    return "Unknown";
+}
+
+
+/* =====================================================
+   DATE
+===================================================== */
+
+function formatDate(
+    value
+){
+
+    if(!value)
+        return "-";
+
+
+    const date =
+        new Date(value);
+
+
+    if(isNaN(date.getTime()))
+        return "-";
+
+
+    return date.toLocaleString();
+}
+
+
+/* =====================================================
+   EXPIRED
+===================================================== */
+
+function isExpired(item){
+
+    if(!item)
+        return true;
+
+
+    if(
+        item.expiry ===
+        "Lifetime (Unlimited)"
+    )
+        return false;
+
+
+    if(
+        Number(item.expireAt) >=
+        9999999999000
+    )
+        return false;
+
+
+    return Number(
+        item.expireAt || 0
+    ) <= Date.now();
+}
+
+
+/* =====================================================
+   RANDOM PREVIEW
+===================================================== */
+
+function generatePreview(){
+
+    document.getElementById(
+        "customKey"
+    ).value =
+        makeRandomKey();
+
+
+    showToast(
+        "Random key generated."
+    );
+}
+
+
+/* =====================================================
+   GENERATE KEY
+===================================================== */
+
+async function generateKey(){
+
+    try{
+
+        let key =
+            document.getElementById(
+                "customKey"
+            ).value.trim();
+
+
+        if(!key)
+            key =
+                makeRandomKey();
+
+
+        key =
+            normalizeKey(key);
+
+
+        if(!key){
+
+            showToast(
+                "Invalid key.",
+                true
+            );
+
+            return;
+        }
+
+
+        const value =
+            Math.max(
+                1,
+                parseInt(
+                    document.getElementById(
+                        "durationValue"
+                    ).value
+                ) || 1
+            );
+
+
+        const unit =
+            document.getElementById(
+                "durationUnit"
+            ).value;
+
+
+        const now =
+            Date.now();
+
+
+        const lifetime =
+            unit === "life";
+
+
+        const data = {
+
+            active:true,
+
+            created_at:
+                new Date(now)
+                    .toISOString(),
+
+            expireAt:
+                lifetime
+                    ? 9999999999999
+                    : now +
+                      durationMs(
+                          value,
+                          unit
+                      ),
+
+            expiry:
+                durationText(
+                    value,
+                    unit
+                )
+
+        };
+
+
+        await firebaseRequest(
+
+            KEYS_PATH +
+            "/" +
+            encodeURIComponent(key),
+
+            {
+                method:"PUT",
+
+                body:
+                    JSON.stringify(data)
+            }
+        );
+
+
+        document.getElementById(
+            "generatedBox"
+        ).classList.add(
+            "show"
+        );
+
+
+        document.getElementById(
+            "generatedKey"
+        ).textContent =
+            key;
+
+
+        document.getElementById(
+            "customKey"
+        ).value = "";
+
+
+        showToast(
+            "KEY GENERATED SUCCESSFULLY"
+        );
+
+
+        await loadKeys();
+
+    }catch(error){
+
+        console.error(
+            "Generate error:",
+            error
+        );
+
+
+        showToast(
+            "Generate failed: " +
+            error.message,
+            true
+        );
+    }
+}
+
+
+/* =====================================================
+   COPY
+===================================================== */
+
+async function copyGeneratedKey(){
+
+    const key =
+        document.getElementById(
+            "generatedKey"
+        ).textContent.trim();
+
+
+    try{
+
+        await navigator.clipboard
+            .writeText(key);
+
+        showToast(
+            "KEY COPIED"
+        );
+
+    }catch{
+
+        showToast(
+            "Copy failed.",
+            true
+        );
+    }
+}
+
+
+async function copyKey(key){
+
+    try{
+
+        await navigator.clipboard
+            .writeText(key);
+
+        showToast(
+            "KEY COPIED"
+        );
+
+    }catch{
+
+        showToast(
+            "Copy failed.",
+            true
+        );
+    }
+}
+
+
+/* =====================================================
+   LOAD KEYS
+===================================================== */
+
+async function loadKeys(){
+
+    const tbody =
+        document.getElementById(
+            "keysTableBody"
+        );
+
+
+    tbody.innerHTML = `
+        <tr>
+            <td
+                colspan="5"
+                style="text-align:center;">
+                Connecting to Firebase...
+            </td>
+        </tr>
+    `;
+
+
+    try{
+
+        const data =
+            await firebaseRequest(
+                KEYS_PATH
+            );
+
+
+        keysData =
+            data || {};
+
+
+        document.getElementById(
+            "connectionText"
+        ).textContent =
+            "FIREBASE CONNECTED";
+
+
+        renderKeys();
+
+
+    }catch(error){
+
+        console.error(error);
+
+
+        document.getElementById(
+            "connectionText"
+        ).textContent =
+            "FIREBASE CONNECTION ERROR";
+
+
+        tbody.innerHTML = `
+            <tr>
+                <td
+                    colspan="5"
+                    style="
+                    text-align:center;
+                    color:#ff657c;">
+
+                    Firebase connection failed.
+
+                    <br><br>
+
+                    ${escapeHTML(
+                        error.message
+                    )}
+
+                </td>
+            </tr>
+        `;
+
+
+        showToast(
+            "Firebase connection failed.",
+            true
+        );
+    }
+}
+
+
+/* =====================================================
+   RENDER
+===================================================== */
+
+function renderKeys(){
+
+    const tbody =
+        document.getElementById(
+            "keysTableBody"
+        );
+
+
+    const search =
+        document.getElementById(
+            "searchKey"
+        ).value
+         .trim()
+         .toUpperCase();
+
+
+    const filter =
+        document.getElementById(
+            "statusFilter"
+        ).value;
+
+
+    tbody.innerHTML = "";
+
+
+    let total = 0;
+
+    let active = 0;
+
+    let disabled = 0;
+
+    let expired = 0;
+
+
+    const entries =
+        Object.entries(
+            keysData || {}
+        );
+
+
+    total =
+        entries.length;
+
+
+    entries.forEach(
+        ([key,item]) => {
+
+            const expiredState =
+                isExpired(item);
+
+
+            let status;
+
+
+            if(expiredState){
+
+                status =
+                    "expired";
+
+                expired++;
+
+            }else if(
+                item.active === false
+            ){
+
+                status =
+                    "disabled";
+
+                disabled++;
+
+            }else{
+
+                status =
+                    "active";
+
+                active++;
+            }
+
+
+            if(
+                search &&
+                !key
+                    .toUpperCase()
+                    .includes(search)
+            )
+                return;
+
+
+            if(
+                filter !== "all" &&
+                filter !== status
+            )
+                return;
+
+
+            let badge;
+
+
+            if(status === "active"){
+
+                badge =
+                    `<span class="badge active">
+                        ACTIVE
+                     </span>`;
+
+            }else if(
+                status === "disabled"
+            ){
+
+                badge =
+                    `<span class="badge disabled">
+                        DISABLED
+                     </span>`;
+
+            }else{
+
+                badge =
+                    `<span class="badge expired">
+                        EXPIRED
+                     </span>`;
+            }
+
+
+            const tr =
+                document.createElement(
+                    "tr"
+                );
+
+
+            tr.innerHTML = `
+
+                <td>
+
+                    <div class="key-text">
+
+                        ${escapeHTML(key)}
+
+                    </div>
+
+                    <button
+                        class="btn btn-small"
+                        style="margin-top:7px;"
+                        onclick="copyKey('${escapeHTML(key)}')">
+
+                        COPY
+
+                    </button>
+
+                </td>
+
+
+                <td>
+
+                    ${escapeHTML(
+                        item.expiry || "-"
+                    )}
+
+                    <div
+                        style="
+                        color:#657267;
+                        font-size:9px;
+                        margin-top:5px;">
+
+                        ${
+                            item.expiry ===
+                            "Lifetime (Unlimited)"
+
+                            ? "Never"
+
+                            : escapeHTML(
+                                formatDate(
+                                    item.expireAt
+                                )
+                            )
+                        }
+
+                    </div>
+
+                </td>
+
+
+                <td>
+
+                    ${escapeHTML(
+                        formatDate(
+                            item.created_at
+                        )
+                    )}
+
+                </td>
+
+
+                <td>
+
+                    ${badge}
+
+                </td>
+
+
+                <td>
+
+                    <div class="actions">
+
+                        <button
+                            class="btn btn-small"
+                            onclick="toggleKey('${escapeHTML(key)}')">
+
+                            ${
+                                item.active === false
+                                ? "ENABLE"
+                                : "DISABLE"
+                            }
+
+                        </button>
+
+
+                        <button
+                            class="btn btn-warning btn-small"
+                            onclick="extendKey('${escapeHTML(key)}')">
+
+                            EXTEND
+
+                        </button>
+
+
+                        <button
+                            class="btn btn-danger btn-small"
+                            onclick="deleteKey('${escapeHTML(key)}')">
+
+                            DELETE
+
+                        </button>
+
+                    </div>
+
+                </td>
+
+            `;
+
+
+            tbody.appendChild(
+                tr
+            );
+        }
+    );
+
+
+    if(!tbody.children.length){
+
+        tbody.innerHTML = `
+            <tr>
+                <td
+                    colspan="5"
+                    style="
+                    text-align:center;
+                    color:#6f7b72;">
+
+                    No matching keys.
+
+                </td>
+            </tr>
+        `;
+    }
+
+
+    document.getElementById(
+        "totalKeys"
+    ).textContent =
+        total;
+
+
+    document.getElementById(
+        "activeKeys"
+    ).textContent =
+        active;
+
+
+    document.getElementById(
+        "disabledKeys"
+    ).textContent =
+        disabled;
+
+
+    document.getElementById(
+        "expiredKeys"
+    ).textContent =
+        expired;
+}
+
+
+/* =====================================================
+   TOGGLE
+===================================================== */
+
+async function toggleKey(key){
+
+    const item =
+        keysData[key];
+
+
+    if(!item)
+        return;
+
+
+    const newStatus =
+        item.active === false;
+
+
+    try{
+
+        await firebaseRequest(
+
+            KEYS_PATH +
+            "/" +
+            encodeURIComponent(key),
+
+            {
+                method:"PATCH",
+
+                body:
+                    JSON.stringify({
+                        active:
+                            newStatus
+                    })
+            }
+        );
+
+
+        showToast(
+            newStatus
+                ? "KEY ENABLED"
+                : "KEY DISABLED"
+        );
+
+
+        await loadKeys();
+
+    }catch(error){
+
+        console.error(error);
+
+
+        showToast(
+            "Update failed: " +
+            error.message,
+            true
+        );
+    }
+}
+
+
+/* =====================================================
+   EXTEND
+===================================================== */
+
+async function extendKey(key){
+
+    const item =
+        keysData[key];
+
+
+    if(!item)
+        return;
+
+
+    if(
+        item.expiry ===
+        "Lifetime (Unlimited)"
+    ){
+
+        showToast(
+            "Already unlimited."
+        );
+
+        return;
+    }
+
+
+    const input =
+        prompt(
+            "Additional hours:"
+        );
+
+
+    if(input === null)
+        return;
+
+
+    const hours =
+        Number(input);
+
+
+    if(
+        !Number.isFinite(hours) ||
+        hours <= 0
+    ){
+
+        showToast(
+            "Invalid hours.",
+            true
+        );
+
+        return;
+    }
+
+
+    const current =
+        Number(
+            item.expireAt ||
+            Date.now()
+        );
+
+
+    const newExpire =
+        Math.max(
+            current,
+            Date.now()
+        ) +
+        hours *
+        60 *
+        60 *
+        1000;
+
+
+    try{
+
+        await firebaseRequest(
+
+            KEYS_PATH +
+            "/" +
+            encodeURIComponent(key),
+
+            {
+                method:"PATCH",
+
+                body:
+                    JSON.stringify({
+
+                        expireAt:
+                            newExpire,
+
+                        active:
+                            true
+
+                    })
+            }
+        );
+
+
+        showToast(
+            "KEY EXTENDED"
+        );
+
+
+        await loadKeys();
+
+    }catch(error){
+
+        console.error(error);
+
+
+        showToast(
+            "Extension failed.",
+            true
+        );
+    }
+}
+
+
+/* =====================================================
+   DELETE
+===================================================== */
+
+async function deleteKey(key){
+
+    if(
+        !confirm(
+            "Delete this key?\n\n" +
+            key
+        )
+    )
+        return;
+
+
+    try{
+
+        await firebaseRequest(
+
+            KEYS_PATH +
+            "/" +
+            encodeURIComponent(key),
+
+            {
+                method:"DELETE"
+            }
+        );
+
+
+        showToast(
+            "KEY DELETED"
+        );
+
+
+        await loadKeys();
+
+    }catch(error){
+
+        console.error(error);
+
+
+        showToast(
+            "Delete failed.",
+            true
+        );
+    }
+}
+
+
+/* =====================================================
+   SETTINGS
+===================================================== */
+
+async function loadSettings(){
+
+    try{
+
+        const data =
+            await firebaseRequest(
+                SETTINGS_PATH
+            );
+
+
+        settingsData =
+            data || {};
+
+
+        document.getElementById(
+            "appTitle"
+        ).value =
+            settingsData.title ||
+            "BISWA SENSI PRO";
+
+
+        document.getElementById(
+            "headerTitle"
+        ).textContent =
+            settingsData.title ||
+            "BISWA SENSI PRO";
+
+
+        document.getElementById(
+            "telegramUrl"
+        ).value =
+            settingsData.telegram ||
+            "https://t.me/biswa_mods";
+
+
+        document.getElementById(
+            "maintenance"
+        ).checked =
+            settingsData.maintenance === true;
+
+
+    }catch(error){
+
+        console.warn(
+            "Settings not available:",
+            error
+        );
+
+
+        document.getElementById(
+            "telegramUrl"
+        ).value =
+            "https://t.me/biswa_mods";
+    }
+}
+
+
+/* =====================================================
+   SAVE SETTINGS
+===================================================== */
+
+async function saveSettings(){
+
+    const title =
+        document.getElementById(
+            "appTitle"
+        ).value.trim();
+
+
+    const telegram =
+        document.getElementById(
+            "telegramUrl"
+        ).value.trim();
+
+
+    const maintenance =
+        document.getElementById(
+            "maintenance"
+        ).checked;
+
+
+    try{
+
+        await firebaseRequest(
+            SETTINGS_PATH,
+            {
+                method:"PATCH",
+
+                body:
+                    JSON.stringify({
+
+                        title:title,
+
+                        telegram:telegram,
+
+                        maintenance:
+                            maintenance
+
+                    })
+            }
+        );
+
+
+        document.getElementById(
+            "headerTitle"
+        ).textContent =
+            title;
+
+
+        showToast(
+            "SETTINGS SAVED"
+        );
+
+    }catch(error){
+
+        console.error(error);
+
+
+        showToast(
+            "Settings failed: " +
+            error.message,
+            true
+        );
+    }
+}
+
+
+/* =====================================================
+   DATABASE PREVIEW
+===================================================== */
+
+async function refreshDatabase(
+    showMessage = true
+){
+
+    try{
+
+        const data =
+            await firebaseRequest(
+                ""
+            );
+
+
+        document.getElementById(
+            "databasePreview"
+        ).textContent =
+            JSON.stringify(
+                data || {},
+                null,
+                2
+            );
+
+
+        if(showMessage){
+
+            showToast(
+                "DATABASE REFRESHED"
+            );
+        }
+
+
+    }catch(error){
+
+        console.error(error);
+
+
+        document.getElementById(
+            "databasePreview"
+        ).textContent =
+            "Firebase error:\n\n" +
+            error.message;
+
+
+        if(showMessage){
+
+            showToast(
+                "Database failed.",
+                true
+            );
+        }
+    }
+}
+
+
+/* =====================================================
+   COPY DATABASE
+===================================================== */
+
+async function copyDatabase(){
+
+    try{
+
+        await navigator.clipboard
+            .writeText(
+                document.getElementById(
+                    "databasePreview"
+                ).textContent
+            );
+
+
+        showToast(
+            "DATABASE COPIED"
+        );
+
+    }catch{
+
+        showToast(
+            "Copy failed.",
+            true
+        );
+    }
+}
+
+
+/* =====================================================
+   EXPORT
+===================================================== */
+
+function exportKeys(){
+
+    const rows = [
+
+        [
+            "KEY",
+            "STATUS",
+            "EXPIRY",
+            "CREATED"
+        ]
+
+    ];
+
+
+    Object.entries(
+        keysData || {}
+    ).forEach(
+        ([key,item]) => {
+
+            let status;
+
+
+            if(
+                isExpired(item)
+            ){
+
+                status =
+                    "EXPIRED";
+
+            }else if(
+                item.active === false
+            ){
+
+                status =
+                    "DISABLED";
+
+            }else{
+
+                status =
+                    "ACTIVE";
+            }
+
+
+            rows.push([
+
+                key,
+
+                status,
+
+                item.expiry || "",
+
+                item.created_at || ""
+
+            ]);
+
+        }
+    );
+
+
+    const csv =
+        rows
+        .map(
+            row =>
+                row
+                .map(
+                    value =>
+                        '"' +
+                        String(value)
+                            .replace(
+                                /"/g,
+                                '""'
+                            ) +
+                        '"'
+                )
+                .join(",")
+        )
+        .join("\n");
+
+
+    const blob =
+        new Blob(
+            [csv],
+            {
+                type:
+                    "text/csv;charset=utf-8"
+            }
+        );
+
+
+    const url =
+        URL.createObjectURL(
+            blob
+        );
+
+
+    const a =
+        document.createElement(
+            "a"
+        );
+
+
+    a.href = url;
+
+    a.download =
+        "biswa-sensi-pro-keys.csv";
+
+
+    document.body.appendChild(a);
+
+    a.click();
+
+    a.remove();
+
+
+    URL.revokeObjectURL(
+        url
+    );
+
+
+    showToast(
+        "KEYS EXPORTED"
+    );
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+async function start(){
+
+    await loadSettings();
+
+    await loadKeys();
+
+    await refreshDatabase(
+        false
+    );
+}
+
+
+window.addEventListener(
+    "load",
+    start
+);
+
+</script>
+
+</body>
+</html>
